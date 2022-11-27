@@ -12,9 +12,51 @@
 // - email (który przed chwilą ściągnąłeś z inputa)
 // - password (też z inputa)
 // 9. Do wywołania poprzedniej funkcji dopisz thena, będzie on przyjmował parametr creds, w środku thena console.log(creds), console.log('Zalogowano') i wywołanie renderHomePage() (wcześniej trzeba zaimportować), dodaj metode catch i console.log('Error')
-// KONIEC EL
+// KONIEC eventListener'a
 // 10. Zwróć element form z głównej funkcji przy pomocy return
 
-export default function () {
+import { auth } from "../../firebaseConfig.js";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+import renderHomePage from "../HomePage/renderHomePage.js";
 
+export default function () {
+    // 1.
+    const form = document.createElement("form");
+    form.setAttribute("id", "login-form");
+    // 2.
+    const inputEmail = document.createElement("input");
+    inputEmail.setAttribute("type", "email");
+    inputEmail.setAttribute("id", "input-email");
+    inputEmail.setAttribute("placeholder", "email");
+    // 3.
+    const inputPass = document.createElement("input");
+    inputPass.setAttribute("type", "password");
+    inputPass.setAttribute("id", "input-password");
+    inputPass.setAttribute("placeholder", "password");
+    // 4.
+    const button = document.createElement("button");
+    button.setAttribute("type", "submit");
+    button.textContent = "Sign in";
+    // 5.
+    form.appendChild(inputEmail);
+    form.appendChild(inputPass);
+    form.appendChild(button);
+    // 6.
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        // 7.
+        const emailValue = inputEmail.value;
+        const passwordValue = inputPass.value;
+        console.log (emailValue, passwordValue);
+        // 8. i 9.
+        signInWithEmailAndPassword(auth, emailValue, passwordValue)
+        .then((creds) => {
+            console.log(creds);
+            console.log("Zalogowano");
+            renderHomePage();
+        })
+        .catch((err) => console.log("Error"));
+    });
+    // 10.
+    return form;
 }

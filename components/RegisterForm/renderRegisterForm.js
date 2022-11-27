@@ -1,5 +1,6 @@
 import { auth } from "../../firebaseConfig.js";
 import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+import renderHomePage from "../HomePage/renderHomePage.js";
 
 // W funkcji poniżej:
 // 1. Wybranie i wyczyszczenie sekcji o klasie "content"
@@ -54,7 +55,10 @@ export default function () {
         if (password === confirmation) {
             console.log("Hasła ok");
             createUserWithEmailAndPassword(auth, email, password) // rejestruję usera
-                .then((userCredentials) => console.log(userCredentials));
+                .then((userCredentials) => {
+                    console.log(userCredentials);
+                    renderHomePage();
+                });
         } else {
             console.log("Hasła się nie zgadzają");
             // czyli nie zarejestruję usera
