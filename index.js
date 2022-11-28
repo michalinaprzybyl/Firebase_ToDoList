@@ -42,8 +42,10 @@ homeButton.addEventListener("click", () => {
 
 // Todos button
 todosButton.addEventListener("click", () => {
-    contentContainer.innerHTML ="";
-    renderTodoPage();
+    contentContainer.innerHTML = "";
+    // renderTodoPage();
+    const user = auth.currentUser;
+    user ? renderTodoPage() : renderLoginPage();
 });
 
 // Login button
@@ -53,8 +55,8 @@ loginButton.addEventListener("click", () => {
     // Jeżeli user nie istnieje, to kliknięcie na ten button ma wywołać funkcję renderLoginPage
     if (auth.currentUser) {
         signOut(auth)
-        .then(() => renderHomePage())
-        .catch((err) => console.log(err));
+            .then(() => renderHomePage())
+            .catch((err) => console.log(err));
     } else {
         renderLoginPage();
     }
