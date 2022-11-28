@@ -47,15 +47,15 @@ export default function () {
         // 7.
         const emailValue = inputEmail.value;
         const passwordValue = inputPass.value;
-        console.log (emailValue, passwordValue);
+        console.log(emailValue, passwordValue);
         // 8. i 9.
         signInWithEmailAndPassword(auth, emailValue, passwordValue)
-        .then((creds) => {
-            console.log(creds);
-            console.log("Zalogowano");
-            renderHomePage();
-        })
-        .catch((err) => console.log("Error"));
+            .then((creds) => {
+                console.log(creds);
+                console.log("Zalogowano");
+                renderHomePage();
+            })
+            .catch((err) => console.log("Błędny login lub hasło"));
     });
     // 10.
     return form;
