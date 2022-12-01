@@ -3,6 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js"; // ta funkcja stworzy obiekt konfiguracyjny dla autentykacji, czyli dla mechanizmów logowania i uwierzytelniania userów
 import { getDatabase } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-storage.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -25,3 +27,5 @@ export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 export const db = getDatabase(app);
+export const firestore = getFirestore(app);
+export const storage = getStorage(app);

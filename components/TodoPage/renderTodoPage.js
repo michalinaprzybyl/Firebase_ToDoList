@@ -97,9 +97,9 @@ export default function () {
             console.log(listItems);
 
             // 1. Stwórz element < ul >
-            // 2. Wywołaj metodę forEach na zmiennej listItems, w środku forEach'a podepnij aktualny element    po którym iterujesz do ul'a z pkt 1 
+            // 2. Wywołaj metodę forEach na zmiennej listItems, w środku forEach'a podepnij aktualny element po którym iterujesz do ul'a z pkt 1 
             // 3. Wyczyść content container 
-            // 4. Stwórz zmienną todoForm, zapisz w niej wywołanie renderTodoForm (const todoForm = render...)
+            // 4. Stwórz zmienną todoForm, zapisz w niej wywołanie renderTodoForm 
             // 5. Do content containera podepnij h2
             // 6. Do content con podepnij todoForm
             // 7. Do content con podepnij ul
@@ -196,7 +196,6 @@ export default function () {
             const removeButtons = [...document.getElementsByClassName("remove-button")];
             removeButtons.forEach((el, i) => {
                 el.addEventListener("click", function () {
-                    // 1. usuń całego todosa, całe li
                     this.parentElement.parentElement.remove(); // to jest moje li, które usuwam
                     remove(ref(db, `todos/${auth.currentUser.uid}/${Object.keys(data)[i]}`));
                 })
