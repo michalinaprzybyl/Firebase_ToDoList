@@ -59,3 +59,7 @@ footer {
 fieldset {
     border: none;
 }
+
+li {
+    text-align: left;
+}
