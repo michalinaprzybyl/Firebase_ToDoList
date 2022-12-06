@@ -1,13 +1,13 @@
-// 1. Importy: storage z firebaseConfig; uploadBytes, ref ("https://www.gstatic.com/firebasejs/9.8.2/firebase-storage.js")
+// 1. Zaimportuj storage z firebaseConfig oraz uploadBytes, ref ("https://www.gstatic.com/firebasejs/9.8.2/firebase-storage.js").
 // W funkcji:
-// 2. Wybranie i czyszczenie content containera
-// 3. Stwórz element <h2>, textContent 'Upload your profile photo!', od razu podepnij pod content container.
+// 2. Wybierz i wyczyść content containera.
+// 3. Stwórz element <h2>, textContent 'Upload your profile photo!' i od razu podepnij pod content container.
 // 4. Stwórz element <form>, id "file-form".
-// 5. Stwórz element <input>, id 'file-input', type 'file', accept "image/png, image/jpeg"
-// 6. Stwórz element <button>, id "file-form-submit-button", type "submit", textContent "Upload your file"
-// 7. Do form (pkt 4) podepnij input i submit button
-// 8. Do content containera podepnij form
-// 9. Funkcję zaimportuj do index.js, podepnij event listener do storage buttona i tam wywołuj renderStoragePage
+// 5. Stwórz element <input>, id 'file-input', type 'file', accept "image/png, image/jpeg".
+// 6. Stwórz element <button>, id "file-form-submit-button", type "submit", textContent "Upload your file".
+// 7. Do form podepnij input i submit button.
+// 8. Do content containera podepnij form.
+// 9. Funkcję zaimportuj do index.js, podepnij event listener do storage buttona i tam wywołaj renderStoragePage.
 
 // 1.
 import { storage, auth } from "../../firebaseConfig.js";
@@ -41,15 +41,15 @@ export default function () {
     // 8.
     contentContainer.appendChild(fileForm);
 
-    // kontynuacja z trenerem :)
+    // kontynuacja poniżej z trenerem z SDA
     // nałóż addEventListenera na form
     fileForm.addEventListener("submit", function (event) {
         event.preventDefault();
         // stwórz referencję do storage
         const storageRef = ref(storage, `/users/${auth.currentUser.uid}/avatar`) // jeśli nazwa własna fotki zamiast avatara to wpisz ${file.name}
         // ściągnij zdjęcie z file-input
-        const file = fileInput.files[0]; // nie .value, bo fileInputy nie mają value; files zwróci fileList, a tam będzie tylko jedno zdjęcie ,więc dlatego 0
-        // uploadBytes to f. firebaseowa służaca do wrzucania plików do storage: 1 arg. to ref do konkretnego msca w storage, gdzie ma być wrzucony plik, czyli 2 arg.
+        const file = fileInput.files[0]; // nie .value, bo fileInputy nie mają value; files zwróci fileList, a tam będzie tylko jedno zdjęcie,  dlatego [0]
+        // uploadBytes to funkcja firebase'owa, służąca do wrzucania plików do storage: 1 arg. to referencja do konkretnego miejsca w Storage, gdzie ma być wrzucony plik, a plik to 2 arg.
         uploadBytes(storageRef, file)
             .then(() => console.log("File uploaded"))
             .catch(() => console.log("Failed to upload the file"));

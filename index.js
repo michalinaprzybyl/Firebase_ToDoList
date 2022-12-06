@@ -3,7 +3,6 @@ import renderLoginPage from "./components/LoginPage/renderLoginPage.js";
 import { ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-storage.js";
 import { auth, storage } from "./firebaseConfig.js";
 import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
-import renderTodoForm from "./components/TodoForm/renderTodoForm.js";
 import renderTodoPage from "./components/TodoPage/renderTodoPage.js";
 import renderTeamPage from "./components/TeamPage/renderTeamPage.js";
 import renderStoragePage from "./components/StoragePage/renderStoragePage.js";
@@ -18,7 +17,7 @@ const storageButton = document.getElementById("storage-anchor");
 const publicButton = document.getElementById("public-anchor");
 const loginButton = document.getElementById("login-anchor");
 
-// Reacting to auth atate change
+// Reacting to auth state change
 onAuthStateChanged(auth, (user) => {
     if (user) {
         // console.log(user.email);
@@ -42,15 +41,13 @@ onAuthStateChanged(auth, (user) => {
 
 // Rendering the home page on initial page load
 renderHomePage();
-// renderRegisterForm();
-// contentContainer.appendChild(renderLoginForm());
 
 // Navbar buttons listeners
 // Home button
 homeButton.addEventListener("click", () => {
     renderHomePage();
 });
-// można też zapisaćw ten sposób:
+// I can also write:
 // homeButton.addEventListener("click", renderHomePage);
 
 // Todos button

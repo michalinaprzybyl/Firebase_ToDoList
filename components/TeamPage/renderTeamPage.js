@@ -1,14 +1,14 @@
-// 1. Importy: renderTodoForm; collection, addDoc, getDocs ("https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js"); obiekt firestore z firebaseConfig
+// 1. Zaimportuj renderTodoForm oraz collection, addDoc, getDocs ("https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js"), a także obiekt firestore z firebaseConfig.
 // W funkcji:
-// 2. Wybranie i czyszczenie content container
-// 3. Stwórz element <h2>, textContent "Your team's todos.", od razu podepnij do content containera
-// 4. Wywołaj funkcję renderTodoFrom, wynik zapisz do zmiennej
-// 5. Nadaj todo formowi id 'teams-todo-form', od razu podepnij do content containera
-// 6. Na todoForm nadaj EL na submit.
-// W EL:
-// 7. Wybierz todoInput i ściągnij z niego value (id 'todo-input')
-// 8. Wybranie i ściągnięcie value z odpowiedniego radio inputa
-// 9. Użyj funkcji addDoc do wrzucenia danych do bazy, dodać thena za addDoc żeby potwierdzić poprawność działania funckji, dodaj też catcha
+// 2. Wybierz i wyczyść content container.
+// 3. Stwórz element <h2>, textContent "Your team's todos." i od razu podepnij do content containera.
+// 4. Wywołaj funkcję renderTodoFrom, wynik zapisz do zmiennej.
+// 5. Nadaj todo formowi id 'teams-todo-form' i od razu podepnij do content containera.
+// 6. Na todoForm nadaj EventListener'a na submit.
+// W EventListenerze:
+// 7. Wybierz todoInput i ściągnij z niego value (id 'todo-input').
+// 8. Wybierz i ściągnij value z odpowiedniego radio inputa.
+// 9. Użyj funkcji addDoc do wrzucenia danych do bazy, dodaj then'a za addDoc, żeby potwierdzić poprawność działania funckji, dodaj też catch'a.
 // FUNKCJA COLLECTION: collection(firestore, "teams") 
 
 // 1.
@@ -46,17 +46,17 @@ export default function () {
             .catch((err) => console.log(err.message));
     });
 
-    // 1. Stwórz element <ul>, id "teams-todo-list"
+    // 1. Stwórz element <ul>, id "teams-todo-list".
     // 2. Stwórz funkcję asynchroniczną, nazwij ją readDocData.
     // W funkcji readDocData:
     // 3. Wywołaj funkcję getDocs i ściągnij dane z kolekcji "teams". Wynik wywołania zapisz do zmiennej querySnapshot, pamiętaj o await!
-    // 4. Na zmiennej querySnapshot wywołaj forEach'a (w parametrze będzie miał doc, (doc) => {...}). W forEach'u stwórz zmienną todo i zapisz w niej wynik wyowołania metody data() na parametrze doc (const todo = doc.data())
-    // 5. Console.log(todo) żeby zobaczyć co to jest
-    // 6. Stwórz element <li>, w textContent ma się znaleźć todoText i category
-    // 7. Podepnij li (pkt 6) do ul (pkt 1).
+    // 4. Na zmiennej querySnapshot wywołaj forEach'a (w parametrze będzie miał doc). W forEach'u stwórz zmienną todo i zapisz w niej wynik wyowołania metody data() na parametrze doc.
+    // 5. Console.log(todo), żeby zobaczyć, co to jest.
+    // 6. Stwórz element <li>, w textContent ma się znaleźć todoText i category.
+    // 7. Podepnij li do ul.
     // ==KONIEC FOREACH I FUNKCJI READDOCDATA==
     // 8. Wywołanie readDocData
-    // 9. Podepnij ul (pkt 1) do content container.
+    // 9. Podepnij ul do content container.
 
     // 1.
     const ul = document.createElement("ul");
@@ -68,7 +68,7 @@ export default function () {
             const querySnapshot = await getDocs(collection(firestore, "teams")); // tu lista opakowanych dokumentów we wskazanej kolekcji
             // 4.
             querySnapshot.forEach((doc) => {
-                const todo = doc.data(); // dzięki met data() rozpakowuję obiekt .json i w todo on już siedzi jako .js
+                const todo = doc.data(); // dzięki metodzie data() rozpakowuję obiekt .json i w todo on już siedzi jako .js
                 // 5.
                 console.log(todo);
                 // 6.

@@ -1,20 +1,20 @@
-// 1. Stwórz element <form> i nadaj mu id 'todo-form'
-// 2. Stwórz element <input> i nadaj mu id 'todo-input'
-// 3. Stwórz element <fieldset> i  nadaj mu id "todo-fieldset"
-// 4. Stwórz element <legend> i nadaj mu textContent "Select a category"
-// 5. Stwórz element <div> i nadaj mu id 'div-work'
-// 6. Stwórz element <input>, nadaj mu type "radio", id "radio-work", name "category", value "work", checked "true"
-// 7. Stwórz element <label>, nadaj mu atrybut for "radio-work", textContent "Work"
-// 8. Do diva id 'div-work' (pkt 5) podpinacie radio inputa z pkt 6 i label z pkt 7
-// 9. Stwórz element <div> i nadaj mu id 'div-life'
-// 10. Stwórz element <input>, nadaj mu type "radio", id "radio-life", name "category", value "life"
-// 11. Stwórz element <label>, nadaj mu atrybut for "radio-life", textContent "Life"
-// 12. Do diva id 'div-life' (pkt 9) podpinacie radio inputa z pkt 10 i label z pkt 11
-// Powtórz tyle razy żeby finalnie powstały 4 radio inputy z value Work, Life, Sport i Education
-// 13. Stwórz element <button>, nadaj mu type "submit", klasę "todo-form-submit-button", textContent "Add todo"
-// 14. Do fieldseta podpinacie elementy legend, divWork, divLife, divSport, divEducation
-// 15. Do form podpinacie input (pkt 2), fieldset, submit button
-// 16. Cały formularz zwracacie returnem
+// 1. Stwórz element <form> i nadaj mu id 'todo-form'.
+// 2. Stwórz element <input> i nadaj mu id 'todo-input'.
+// 3. Stwórz element <fieldset> i  nadaj mu id "todo-fieldset".
+// 4. Stwórz element <legend> i nadaj mu textContent "Select a category".
+// 5. Stwórz element <div> i nadaj mu id 'div-work'.
+// 6. Stwórz element <input>, nadaj mu type "radio", id "radio-work", name "category", value "work", checked "true".
+// 7. Stwórz element <label>, nadaj mu atrybut for "radio-work", textContent "Work".
+// 8. Do diva id 'div-work' podepnij radio inputa z pkt 6 i label z pkt 7.
+// 9. Stwórz element <div> i nadaj mu id 'div-life'.
+// 10. Stwórz element <input>, nadaj mu type "radio", id "radio-life", name "category", value "life".
+// 11. Stwórz element <label>, nadaj mu atrybut for "radio-life", textContent "Life".
+// 12. Do diva id 'div-life' podepnij radio inputa z pkt 10 i label z pkt 11.
+// Powtórz tyle razy żeby finalnie powstały 4 radio inputy z value Work, Life, Sport i Education.
+// 13. Stwórz element <button>, nadaj mu type "submit", klasę "todo-form-submit-button", textContent "Add todo".
+// 14. Do fieldseta podepnij elementy legend, divWork, divLife, divSport, divEducation.
+// 15. Do form podepnij input (pkt 2), fieldset, submit button.
+// 16. Cały formularz zwróć returnem.
 
 export default function () {
     // 1.
@@ -71,11 +71,11 @@ export default function () {
     inputSport.setAttribute("id", "radio-sport");
     inputSport.setAttribute("name", "category");
     inputSport.setAttribute("value", "sport");
-    
+
     const labelSport = document.createElement("label");
     labelSport.setAttribute("for", "radio-sport");
     labelSport.textContent = "Sport";
-    
+
     divSport.appendChild(inputSport);
     divSport.appendChild(labelSport);
 
@@ -87,11 +87,11 @@ export default function () {
     inputEdu.setAttribute("id", "radio-education");
     inputEdu.setAttribute("name", "category");
     inputEdu.setAttribute("value", "education");
-    
+
     const labelEdu = document.createElement("label");
     labelEdu.setAttribute("for", "radio-education");
     labelEdu.textContent = "Education";
-    
+
     divEdu.appendChild(inputEdu);
     divEdu.appendChild(labelEdu);
     // 13.
