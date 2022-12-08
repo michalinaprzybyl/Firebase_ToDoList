@@ -1,4 +1,4 @@
-# Firebase ToDo List
+# Firebase To Do List
 
 The web application presents a to do list. It was created on SPA basis using Firebase. It is divided into five subpages. One of them is for user login and registration. After registration, the user is automatically taken to the home page, where his profile picture is displayed, which he can upload to the server in the Storage tab. In addition, the app has two more subpages: Todos and Team todos. In the Todos tab, the user can create his own to do list, can assign it to one of four categories (work, life, sports, education) and when the task is completed, can remove it from the list. If a non-logged-in user wants to access this tab, he will automatically be taken to the login page. The Team todos tab contains group tasks for all users of the app, and these tasks are visible only after logging in.
 
