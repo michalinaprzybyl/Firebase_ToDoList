@@ -22,7 +22,7 @@ export default function () {
     h2.textContent = "Log in or sign up";
     // 4.
     const p = document.createElement("p");
-    p.textContent = "Our authentication mechanism uses Firebase Auth and is % secure.";
+    p.textContent = "Our authentication mechanism uses Firebase Auth and is 100% secure.";
     // 5.
     const label = document.createElement("label");
     label.textContent = "Log in";
